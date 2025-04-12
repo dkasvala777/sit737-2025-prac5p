@@ -19,34 +19,31 @@ This repository contains my submission for SIT737 Task 5.1P – Containerisation
 
 ### 1. Clone the Project or Start a New Node App
 
-I used my existing Node.js application. If needed, anyone can start fresh using:
+I cloned the project  Node.js application.
 
-```bash
-npm init -y
-npm install express
-```
 
-### 2. Create the `app.js` File
-
-I created a simple server using Express. This also includes a `/health` route for Docker health checks.
+### 2. The the `app.js` File
 
 ```javascript
 const express = require('express');
 const app = express();
-const port = 3000;
 
+// Serve the HTML file
 app.get('/', (req, res) => {
-  res.send('Hello from Dockerised Node App!');
+  res.send('<h1>Hello, World!</h1>');
 });
 
-// Health check route
+// Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`App is running on http://localhost:${port}`);
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
+
+
 ```
 
 ### 3. Create the `Dockerfile`
@@ -156,14 +153,14 @@ git init
 
 ```bash
 git add .
-git commit -m "Initial commit"
+git commit -m "code"
 ```
 
 ### 3. Set Remote and Push
 
 ```bash
 git remote set-url origin https://github.com/dkasvala777/sit737-2025-prac5p.git
-git push -u origin main
+git push -u origin master
 ```
 
 ---
